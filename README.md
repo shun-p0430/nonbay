@@ -1,24 +1,64 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| nickname      | string  | null: false |
+| email         | string  | null: false |
+| password      | string  | null: false |
+| aroma_id      | integer | null: false |
+| impression_id | integer | null: false |
+| taste_id      | integer | null: false |
+| afterglow_id  | integer | null: false |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :reviews
+- has_many :comments
+- has_many :favorites
 
-* System dependencies
+## reviewsテーブル
 
-* Configuration
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| sake_id       | integer    | null: false                    |
+| aroma_id      | integer    | null: false                    |
+| impression_id | integer    | null: false                    |
+| taste_id      | integer    | null: false                    |
+| afterglow_id  | integer    | null: false                    |
 
-* Database creation
+### association
 
-* Database initialization
+- belongs_to :user
 
-* How to run the test suite
+## commentsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| sake_id | integer    | null: false                    |
+| comment | text       | null: false                    |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+
+## favoritesテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| sake_id | integer    | null: false                    |
+
+### Association
+
+- belongs_to :user
+
+<!-- ## followsテーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| follow_user | references | null: false, foreign_key: true |
+
+### Association -->
