@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   validates :nickname, presence: true
 
-  with_options numericality: { other_than: 0, 1, 11} do
+  with_options numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 10} do
     validates :aroma_id
     validates :impression_id
     validates :taste_id
