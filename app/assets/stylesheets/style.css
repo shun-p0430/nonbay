@@ -1,0 +1,21 @@
+.signup-wrapper {
+  height: calc(100vh - 70px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.signup-field {
+  margin-bottom: 20px;
+}
+
+.login-wrapper {
+  height: calc(100vh - 70px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.login-field {
+  margin-bottom: 20px;
+}
