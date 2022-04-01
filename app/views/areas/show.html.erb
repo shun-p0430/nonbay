@@ -1,0 +1,8 @@
+<div class="selections">
+  <%= @area.name %>
+  <div class="selection">
+    <% @breweries.each do |brewery| %>
+      <%= link_to brewery.name, brewery_path(brewery) %>
+    <% end %>
+  </div>
+</div>

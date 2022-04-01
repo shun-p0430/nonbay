@@ -1,0 +1,8 @@
+<div class="selections">
+  <%= @brewery.name %>
+  <div class="selection">
+    <% @brands.each do |brand| %>
+      <%= link_to brand.name, brand_path(brand) %>
+    <% end %>
+  </div>
+</div>

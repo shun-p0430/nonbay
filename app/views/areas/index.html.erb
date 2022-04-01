@@ -1,0 +1,7 @@
+<div class="selections">
+  <div class="selection">
+    <% @areas.each do |area| %>
+      <%= link_to area.name, area_path(area) %>
+    <% end %>
+  </div>
+</div>

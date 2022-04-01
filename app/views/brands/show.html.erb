@@ -1,0 +1,8 @@
+<div class="selections">
+  <%= @brand.name %>
+  <div class="selection">
+    <% @reviews.each do |review| %>
+      <%= review.user.name %>
+    <% end %>
+  </div>
+</div>
