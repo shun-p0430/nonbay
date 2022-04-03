@@ -1,5 +1,6 @@
 <div class="selections">
-  <%= @brewery.name %>
+  <h3>銘柄を選択してください</h3>
+  <h4><%= @brewery.name %></h4>
   <div class="selection">
     <% @brands.each do |brand| %>
       <%= link_to brand.name, brand_path(brand) %>

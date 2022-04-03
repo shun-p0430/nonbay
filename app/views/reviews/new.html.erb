@@ -1,0 +1,39 @@
+<div class="review-container">
+  <h2>レビュー投稿</h2>
+
+
+  <%= form_with model: [@brand, @review], local: true do |f| %>
+    <%# <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="review-field">
+      <%= f.label :comment %><br />
+      <%= f.text_area :comment, placeholder: 'コメント内容', rows: 5, autofocus: true %>
+    </div>
+
+    <div class="review-field">
+      <%= f.label :aroma %><br />
+      <%= f.collection_select(:aroma_id, Aroma.all, :id, :name) %>
+    </div>
+
+    <div class="review-field">
+      <%= f.label :impression %><br />
+      <%= f.collection_select(:impression_id, Impression.all, :id, :name) %>
+    </div>
+
+    <div class="review-field">
+      <%= f.label :taste %><br />
+      <%= f.collection_select(:taste_id, Taste.all, :id, :name) %>
+    </div>
+
+    <div class="review-field">
+      <%= f.label :afterglow %><br />
+      <%= f.collection_select(:afterglow_id, Afterglow.all, :id, :name) %>
+    </div>
+
+
+    <div class="review-actions">
+      <%= f.submit "投稿" %>
+    </div>
+  <% end %>
+  <%= link_to '戻る', brand_path(@brand) %>
+</div>

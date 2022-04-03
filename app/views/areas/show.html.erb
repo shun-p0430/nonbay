@@ -1,5 +1,6 @@
 <div class="selections">
-  <%= @area.name %>
+  <h3>蔵元を選択してください</h3>
+  <h4><%= @area.name %></h4>
   <div class="selection">
     <% @breweries.each do |brewery| %>
       <%= link_to brewery.name, brewery_path(brewery) %>

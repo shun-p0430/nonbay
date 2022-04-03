@@ -6,12 +6,14 @@ class User < ApplicationRecord
   
   validates :nickname, presence: true
 
-  with_options numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 10} do
+  with_options numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 9} do
     validates :aroma_id
     validates :impression_id
     validates :taste_id
     validates :afterglow_id
   end
+
+  has_many :reviews
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :aroma

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_30_131817) do
+ActiveRecord::Schema.define(version: 2022_04_01_073905) do
 
   create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 2022_03_30_131817) do
     t.bigint "brewery_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "aroma", precision: 3, scale: 2
+    t.decimal "impression", precision: 3, scale: 2
+    t.decimal "taste", precision: 3, scale: 2
+    t.decimal "afterglow", precision: 3, scale: 2
     t.index ["brewery_id"], name: "index_brands_on_brewery_id"
   end
 
@@ -42,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_03_30_131817) do
     t.integer "afterglow_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comment"
     t.index ["brand_id"], name: "index_reviews_on_brand_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

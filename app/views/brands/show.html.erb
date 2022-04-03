@@ -1,8 +1,21 @@
 <div class="selections">
-  <%= @brand.name %>
+  <h4><%= @brand.name %></h4>
+  <%= link_to '投稿', new_brand_review_path(@brand) %>
+  <h5>味わい</h5>
+  香り<%= @brand.aroma %>
+  第一印象<%= @brand.impression %>
+  旨味<%= @brand.taste %>
+  余韻<%= @brand.afterglow %>
+
+  <h5>レビュー一覧</h5>
   <div class="selection">
     <% @reviews.each do |review| %>
-      <%= review.user.name %>
+      <%= review.user.nickname %><br/>
+      <%= review.comment %><br/>
+      香り<%= review.aroma_id %><br/>
+      第一印象<%= review.impression_id %><br/>
+      旨味<%= review.taste_id %><br/>
+      余韻<%= review.afterglow_id %><br/>
     <% end %>
   </div>
 </div>
