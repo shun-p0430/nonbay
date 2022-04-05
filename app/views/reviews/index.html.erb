@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+  <div class="recomend-container">
+    <h4>おすすめの銘柄</h4>
+    <% @recomends.each do |recomend| %>
+      <%= recomend.name %>
+      <%= recomend.aroma %>
+      <%= recomend.impression %>
+      <%= recomend.taste %>
+      <%= recomend.afterglow %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="reviews-container">
+  <h4>最新の投稿</h4>
+  <% @reviews.each do |review| %>
+    <div class="review-container">
+      <%= review.user.nickname %></br>
+      <%= review.brand.brewery.name %></br>
+      <%= review.brand.name %></br>
+      香り<%= review.aroma_id %>
+      第一印象<%= review.impression_id %>
+      旨味<%= review.taste_id %>
+      余韻<%= review.afterglow_id %></br>
+      <%= review.comment %></br>
+    </div>
+  <% end %>
+</div>

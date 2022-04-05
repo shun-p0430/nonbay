@@ -6,4 +6,6 @@
       <%= link_to brand.name, brand_path(brand) %>
     <% end %>
   </div>
+  <%= link_to '銘柄登録', new_brewery_brand_path(@brewery) %>
+  <%= link_to '戻る', area_path(@brewery.area_id) %>
 </div>
