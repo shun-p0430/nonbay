@@ -1,0 +1,19 @@
+<div class="brand-container">
+  <h2>銘柄登録</h2>
+  <h3><%= @brewery.name %></h3>
+
+
+  <%= form_with model: [@brewery, @brand], local: true do |f| %>
+    <%# <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="brand-field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autocomplete: '銘柄', autofocus: true %>
+    </div>
+
+    <div class="brand-actions">
+      <%= f.submit "追加" %>
+    </div>
+  <% end %>
+  <%= link_to '戻る', brewery_path(@brewery) %>
+</div>

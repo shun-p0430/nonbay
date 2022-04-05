@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_064819) do
+ActiveRecord::Schema.define(version: 2022_04_01_073905) do
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "brewery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "aroma", precision: 3, scale: 2
+    t.decimal "impression", precision: 3, scale: 2
+    t.decimal "taste", precision: 3, scale: 2
+    t.decimal "afterglow", precision: 3, scale: 2
+    t.index ["brewery_id"], name: "index_brands_on_brewery_id"
+  end
+
+  create_table "breweries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "area_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "brand_id", null: false
+    t.integer "aroma_id", null: false
+    t.integer "impression_id", null: false
+    t.integer "taste_id", null: false
+    t.integer "afterglow_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "comment"
+    t.index ["brand_id"], name: "index_reviews_on_brand_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +62,6 @@ ActiveRecord::Schema.define(version: 2022_03_28_064819) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reviews", "brands"
+  add_foreign_key "reviews", "users"
 end

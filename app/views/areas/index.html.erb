@@ -1,0 +1,8 @@
+<div class="selections">
+  <h3>蔵元の所在地を選択してください</h3>
+  <div class="selection">
+    <% @areas.each do |area| %>
+      <%= link_to area.name, area_path(area) %>
+    <% end %>
+  </div>
+</div>

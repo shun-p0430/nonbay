@@ -1,0 +1,19 @@
+<div class="brewery-container">
+  <h2>蔵元登録</h2>
+  <h3><%= @area.name %></h3>
+
+
+  <%= form_with model: [@area, @brewery], local: true do |f| %>
+    <%# <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="brewery-field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autocomplete: '蔵元', autofocus: true %>
+    </div>
+
+    <div class="brewery-actions">
+      <%= f.submit "追加" %>
+    </div>
+  <% end %>
+  <%= link_to '戻る', area_path(@area) %>
+</div>

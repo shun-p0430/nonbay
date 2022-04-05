@@ -76,23 +76,22 @@
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
               <li><%= link_to 'Home', root_path, class: "nav-link px-2 text-secondary" %></li>
-              <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">マイページ</a></li>
+              <%= link_to 'レビュー投稿', areas_path, class: "nav-link px-2 text-white"%>
+              <li><a href="#" class="nav-link px-2 text-white">おつまみ投稿</a></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+              <input type="search" class="form-control form-control-dark" placeholder="お酒検索" aria-label="Search">
             </form>
 
             <div class="text-end">
               <% if user_signed_in? %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :DELETE, class: "btn btn-outline-light me-2" %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :DELETE, class: "btn btn-outline-light me-2" %>
               <% else %>
-                <%= link_to 'Login', new_user_session_path, class: "btn btn-outline-light me-2" %>
+                <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-light me-2" %>
                 <%# <button type="button" class="btn btn-outline-light me-2">Login</button> %>
-                <%= link_to 'Sign-up', new_user_registration_path, class: "btn btn-warning" %>
+                <%= link_to '新規登録', new_user_registration_path, class: "btn btn-warning" %>
                 <%# <button type="button" class="btn btn-warning">Sign-up</button> %>
               <% end %>
             </div>

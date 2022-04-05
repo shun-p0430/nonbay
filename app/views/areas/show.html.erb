@@ -1,0 +1,11 @@
+<div class="selections">
+  <h3>蔵元を選択してください</h3>
+  <h4><%= @area.name %></h4>
+  <div class="selection">
+    <% @breweries.each do |brewery| %>
+      <%= link_to brewery.name, brewery_path(brewery) %>
+    <% end %>
+  </div>
+  <%= link_to '蔵元登録', new_area_brewery_path(@area) %>
+  <%= link_to '戻る', areas_path %>
+</div>
