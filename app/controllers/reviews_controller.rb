@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_brand, only: [:new, :create]
   def index
-    @reviews = Review.includes(:user).order("updated_at DESC")
+    @reviews = Review.includes(:user).order("updated_at DESC").limit(5)
     if user_signed_in?
       user_aroma = User.find(current_user.id).aroma_id
       user_impression = User.find(current_user.id).impression_id

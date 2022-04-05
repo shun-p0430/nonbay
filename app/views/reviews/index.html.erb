@@ -2,11 +2,12 @@
   <div class="recomend-container">
     <h4>おすすめの銘柄</h4>
     <% @recomends.each do |recomend| %>
-      <%= recomend.name %>
-      <%= recomend.aroma %>
-      <%= recomend.impression %>
-      <%= recomend.taste %>
-      <%= recomend.afterglow %>
+      <%= recomend.brewery.name %></br>
+      <%= recomend.name %></br>
+      香り<%= recomend.aroma %>
+      第一印象<%= recomend.impression %>
+      旨味<%= recomend.taste %>
+      余韻<%= recomend.afterglow %></br>
     <% end %>
   </div>
 <% end %>
