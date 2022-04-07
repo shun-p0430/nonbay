@@ -70,15 +70,20 @@
       <header class="p-3 bg-dark text-white">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <%= link_to image_tag('sugidama.png'), root_path %>
+            <%# <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
               <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-            </a>
+            </a> %>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><%= link_to 'Home', root_path, class: "nav-link px-2 text-secondary" %></li>
-              <li><a href="#" class="nav-link px-2 text-white">マイページ</a></li>
-              <%= link_to 'レビュー投稿', areas_path, class: "nav-link px-2 text-white"%>
-              <li><a href="#" class="nav-link px-2 text-white">おつまみ投稿</a></li>
+              <li><%= link_to 'のんべぇ', root_path, class: "nav-link px-2 text-secondary" %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to current_user.nickname, user_path(current_user.id), class: "nav-link px-2 text-white" %></li>
+                <li><%= link_to 'レビュー投稿', areas_path, class: "nav-link px-2 text-white"%></li>
+                <li><a href="#" class="nav-link px-2 text-white">おつまみ投稿</a></li>
+              <% else %>
+                <li><%= link_to '銘柄検索', areas_path, class: "nav-link px-2 text-white"%></li>
+              <% end %>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
