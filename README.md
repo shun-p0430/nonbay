@@ -8,11 +8,13 @@
 
 # URL
 
+https://nonbay.herokuapp.com/
+
 # テスト用アカウント
 
-・Basic認証ID :
+・Basic認証ID : admin
 
-・Basic認証パスワード :
+・Basic認証パスワード : 0000
 
 ・メールアドレス :
 
@@ -40,35 +42,41 @@ https://docs.google.com/spreadsheets/d/1O7yM7sqR54szLbh7_HKamhAnHu6ANltiE52KQYz0
 
 # 実装した機能についての画像やGIFおよびその説明
 
+
+
 # 実装予定の機能
+
+
 
 # データベース設計
 
-
+[![Image from Gyazo](https://i.gyazo.com/4cf06c1a2e216d962bddb95405fcb7b3.png)](https://gyazo.com/4cf06c1a2e216d962bddb95405fcb7b3)
 
 # 画面遷移図
 
+[![Image from Gyazo](https://i.gyazo.com/0c04e3f213558ee23bcbc4a3891a17fd.png)](https://gyazo.com/0c04e3f213558ee23bcbc4a3891a17fd)
+
 # 開発環境
 
-・フロントエンド
-
-・バックエンド
-
-・インフラ
-
-・テスト
-
-・テキストエディタ
-
-・タスク管理
+- Ruby / Ruby on Rails / MySQL / GitHub / Heroku / Visual Studio Code
 
 # ローカルでの動作方法
 
 以下のコマンドを順に実行。
 
+% git clone https://github.com/shun-p0430/nonbay.git
+
+% cd nonbay
+
+% bundle install
+
+% yarn install
+
 # 工夫したポイント
 
+レビュー投稿時に、紐づいた銘柄の味わいの平均を計算し、更新されるようにしました。
 
+# データベース設計
 
 ## usersテーブル
 
@@ -86,6 +94,10 @@ https://docs.google.com/spreadsheets/d/1O7yM7sqR54szLbh7_HKamhAnHu6ANltiE52KQYz0
 
 - has_many :reviews
 - has_many :favorites
+- has_many :follower, class_name: "Follows", foreign_key: "follower_id", dependent: :destroy
+- has_many :followed, class_name: "Follows", foreign_key: "followed_id", dependent: :destroy
+- has_many :following_user, through: :follower, source: :followed
+- has_many :follower_user, through: :followed, source: :follower
 
 ## breweriesテーブル
 
@@ -144,3 +156,14 @@ https://docs.google.com/spreadsheets/d/1O7yM7sqR54szLbh7_HKamhAnHu6ANltiE52KQYz0
 
 - belongs_to :user
 - belongs_to :brand
+
+
+## followsテーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| follower_id | references | null: false, foreign_key: true |
+| followed_id | references | null: false, foreign_key: true |
+
+- belongs_to :follower, class_name: "User"
+- belongs_to :followed, class_name: "User"
