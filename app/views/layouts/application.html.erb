@@ -4,31 +4,33 @@
     <title>Nonbay</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <header>
-      <div class="container">
-        <div>
-          <%= link_to image_tag('sugidama.png'), root_path %>
+      
+        <div class="left-content">
+          <%= link_to image_tag('sugidama.png', size: "60x60"), root_path, class: "header-img" %>
           <ul>
             <li><%= link_to 'のんべぇ', root_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to current_user.nickname, user_path(current_user.id) %></li>
-              <li><%= link_to 'レビュー投稿', areas_path %></li>
-              <li><%= link_to 'おつまみ投稿', '#' %></li>
-            <% else %>
-              <li><%= link_to '銘柄検索', areas_path %></li>
             <% end %>
+            <li><%= link_to '銘柄検索', areas_path %></li>
           </ul>
-
+        </div>
+        <div class="center-content">
           <form>
-            <input type="search" placeholder="お酒検索">
+            <%= form_with(url: search_brands_path, local: true, method: :get, class: "search-form") do |f| %>
+              <%= f.text_field :keyword, placeholder: "銘柄検索", class: "search-input" %>
+              <%= f.submit "検索", class: "search-btn" %>
+            <% end %>
           </form>
-
-          <div>
+        </div>
+        <div class="right-content">
+          <div class="btn user">
             <% if user_signed_in? %>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :DELETE %>
             <% else %>
@@ -37,8 +39,13 @@
             <% end %>
           </div>
         </div>
+      
+    </header>
+    <div class="main-wrapper">
+      <%= yield %>
+      <div class="side-menu">
+        <%= current_user.nickname %>
       </div>
-    </header>     
-    <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,11 @@
+<form>
+  <%= form_with(url: search_brands_path, local: true, method: :get, class: "search-form") do |f| %>
+    <%= f.text_field :keyword, placeholder: "銘柄検索", class: "search-input" %>
+    <%= f.submit "検索", class: "search-btn" %>
+  <% end %>
+</form>
+<div class="contents row">
+  <% @brands.each do |brand| %>
+    <%= brand.name %>
+  <% end %>
+</div>

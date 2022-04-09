@@ -19,6 +19,11 @@ class BrandsController < ApplicationController
     end
   end
 
+  def search
+    @brands = Brand.search(params[:keyword])
+    binding.pry
+  end
+
   private
   def brand_params
     params.require(:brand).permit(:name).merge(brewery_id: @brewery.id)
