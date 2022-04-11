@@ -9,7 +9,7 @@ class Brand < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Brand.where('text LIKE(?)', "%#{search}%")
+      Brand.where('name LIKE(?)', "%#{search}%")
     else
       Brand.all
     end

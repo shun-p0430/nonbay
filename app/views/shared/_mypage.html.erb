@@ -1,0 +1,35 @@
+<div class="mypage-content">
+  <div class="mypage-title">
+    <h3><%= @user.nickname %></h3>
+  </div>
+  <div class="mypage-like">
+    <h4>好みの味わい</h4>
+    香り:<%= @user.aroma_id %>
+    第一印象:<%= @user.impression_id %>
+    旨味:<%= @user.taste_id %>
+    余韻:<%= @user.afterglow_id %>
+  </div>
+  <div class="recomends-container">
+    <h4>おすすめの銘柄</h4>
+    <% @recomends.each do |recomend| %>
+      <%= "#{recomend.brewery.name} / #{recomend.name}" %></br>
+      香り:<%= recomend.aroma %>
+      第一印象:<%= recomend.impression %>
+      旨味:<%= recomend.taste %>
+      余韻:<%= recomend.afterglow %></br>
+    <% end %>
+  </div>
+  <div class="reviews">
+    <h4>最近投稿したレビュー</h4>
+    <div class="review">
+      <% @user.reviews.each do |review| %>
+        <%= review.brand.brewery.name %> / <%= review.brand.name %></br>
+        <%= review.comment %></br>
+        香り:<%= review.aroma_id %>
+        第一印象:<%= review.impression_id %>
+        旨味:<%= review.taste_id %>
+        余韻:<%= review.afterglow_id %></br>
+      <% end %>
+    </div>
+  </div>
+</div>

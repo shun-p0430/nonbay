@@ -1,22 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_brand, only: [:new, :create]
   def index
-    @reviews = Review.includes(:user).order("updated_at DESC").limit(5)
-    if user_signed_in?
-      user_aroma = User.find(current_user.id).aroma_id
-      user_impression = User.find(current_user.id).impression_id
-      user_taste = User.find(current_user.id).taste_id
-      user_afterglow = User.find(current_user.id).afterglow_id
-      query = "SELECT *
-              FROM brands
-              WHERE aroma between #{user_aroma} - 1 and #{user_aroma} + 1
-              and impression between #{user_impression} - 1 and #{user_impression} + 1
-              and taste between #{user_taste} - 1 and #{user_taste} + 1
-              and afterglow between #{user_afterglow} - 1 and #{user_afterglow} + 1
-              ORDER BY (abs(aroma - #{user_aroma}) + abs(impression - #{user_impression}) + abs(taste - #{user_taste}) + abs(afterglow - #{user_afterglow}))
-              LIMIT 5"
-      @recomends = Brand.find_by_sql(query)
-    end
+    @reviews = Review.includes(:user).order("updated_at DESC").limit(15)
   end
 
   def new
