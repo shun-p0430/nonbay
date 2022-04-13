@@ -1,10 +1,10 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>アカウント編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -13,31 +13,51 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, "新しいパスワード" %>(パスワードを変更する場合のみ入力)<br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>半角<%= @minimum_password_length %>文字以上</em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "新しいパスワード確認用" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :aroma, "香り" %>
+    <%= f.collection_select(:aroma_id, Aroma.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :impression, "第一印象" %>
+    <%= f.collection_select(:impression_id, Impression.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :taste, "旨味" %>
+    <%= f.collection_select(:taste_id, Taste.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :afterglow, "余韻" %>
+    <%= f.collection_select(:afterglow_id, Afterglow.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, "現在のパスワード" %><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "更新" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>退会しますか？</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= button_to "退会", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 
-<%= link_to "Back", :back %>
+<%= link_to "戻る", :back %>

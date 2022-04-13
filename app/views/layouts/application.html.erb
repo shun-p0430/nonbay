@@ -13,13 +13,14 @@
         <div class="left-content">
           <%= link_to image_tag('sugidama.png', size: "60x60"), root_path, class: "header-img" %>
           <%= link_to 'のんべぇ', root_path, class: "title" %>
-          <%= link_to '銘柄検索', areas_path, class: "brand-search" %>
+          <%= link_to '地域検索', areas_path, class: "brand-search" %>
+          <%= link_to '味わい検索', "#", class: "feature-search" %>
         </div>
         <div class="center-content">
           <form>
             <%= form_with(url: search_brands_path, local: true, method: :get, class: "search-form") do |f| %>
               <%= f.text_field :keyword, placeholder: "銘柄検索", class: "search-input" %>
-              <%= f.submit "検索", class: "search-btn" %>
+              <%# <%= f.submit "検索", class: "search-btn" %>
             <% end %>
           </form>
         </div>
@@ -33,9 +34,9 @@
         </div>
     </header>
     <main>
-      <% if user_signed_in? %>
-        <div class="main-wrapper">
-          <div class="main-container">
+      <% if user_signed_in? && current_page?(root_path) %>
+        <div class="top-main-wrapper">
+          <div class="top-main-container">
             <%= yield %>
           </div>
         </div>
@@ -43,8 +44,10 @@
           <%= render "shared/mypage" %>
         </div>
       <% else %>
-        <div class="guest-main-wrapper">
-          <%= yield %>
+        <div class="main-wrapper">
+          <div class="main-container">
+            <%= yield %>
+          </div>
         </div>
       <% end %>
     </main>

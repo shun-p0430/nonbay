@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters_update, if: :devise_controller?
   before_action :set_recomends, if: :user_signed_in?
 
   private
@@ -16,13 +17,16 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :aroma_id, :impression_id, :taste_id, :afterglow_id])
   end
 
+  def configure_permitted_parameters_update
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :aroma_id, :impression_id, :taste_id, :afterglow_id])
+  end
+
   def set_recomends
     if user_signed_in?
-      @user = current_user
-      user_aroma = User.find(@user.id).aroma_id
-      user_impression = User.find(@user.id).impression_id
-      user_taste = User.find(@user.id).taste_id
-      user_afterglow = User.find(@user.id).afterglow_id
+      user_aroma = User.find(current_user.id).aroma_id
+      user_impression = User.find(current_user.id).impression_id
+      user_taste = User.find(current_user.id).taste_id
+      user_afterglow = User.find(current_user.id).afterglow_id
       query = "SELECT *
               FROM brands
               WHERE aroma between #{user_aroma} - 1 and #{user_aroma} + 1
