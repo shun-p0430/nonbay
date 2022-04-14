@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_brand, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @reviews = Review.includes(:user).order("updated_at DESC").limit(15)
   end

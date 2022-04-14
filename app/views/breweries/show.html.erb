@@ -1,5 +1,7 @@
 <div class="brands-container">
   <h4><%= "#{@brewery.name}の銘柄一覧" %></h4>
+  <%= link_to '銘柄登録', new_brewery_brand_path(@brewery) %>
+  <%= link_to "#{@brewery.area.name}の蔵元一覧へ戻る", area_path(@brewery.area_id) %>
   <div class="brand-container">
     <% @brands.each do |brand| %>
       <div class="brand-select">
@@ -15,6 +17,4 @@
       </div>
     <% end %>
   </div>
-  <%= link_to '銘柄登録', new_brewery_brand_path(@brewery) %>
-  <%= link_to "#{@brewery.area.name}の蔵元一覧へ戻る", area_path(@brewery.area_id) %>
 </div>

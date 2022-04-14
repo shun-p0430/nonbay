@@ -1,5 +1,7 @@
 <div class="brewerys-container">
   <h4><%= "#{@area.name}の蔵元一覧" %></h4>
+  <%= link_to '蔵元登録', new_area_brewery_path(@area) %>
+  <%= link_to '地域検索へ戻る', areas_path %>
   <div class="brewery-container">
     <% @breweries.each do |brewery| %>
       <div class="brewery-select">
@@ -7,6 +9,4 @@
       </div>
     <% end %>
   </div>
-  <%= link_to '蔵元登録', new_area_brewery_path(@area) %>
-  <%= link_to '地域検索へ戻る', areas_path %>
 </div>

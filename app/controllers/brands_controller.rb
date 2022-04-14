@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  before_action :authenticate_user!, only:[:new, :create]
+
   def show
     @brand = Brand.find(params[:id])
     @reviews = @brand.reviews
