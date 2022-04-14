@@ -16,11 +16,11 @@
     <h4>おすすめの銘柄</h4>
     <% @recomends.each do |recomend| %>
       <div class="recomend-container">
-        <%= link_to recomend.brewery.name, brewery_path(recomend.brewery) %> / <%= link_to recomend.name, brand_path(recomend) %></br>
+        <%= link_to recomend.brewery.name, brewery_path(recomend.brewery) %> / <%= link_to recomend.name, brand_path(recomend) %><br>
         香り:<%= recomend.aroma %>
         第一印象:<%= recomend.impression %>
         旨味:<%= recomend.taste %>
-        余韻:<%= recomend.afterglow %></br>
+        余韻:<%= recomend.afterglow %><br>
       </div>
     <% end %>
   </div>
@@ -28,11 +28,11 @@
     <h4>最近投稿したレビュー</h4>
     <% @user.reviews.each do |review| %>
       <div class="review-container">
-        <%= link_to review.brand.brewery.name, brewery_path(review.brand.brewery) %> / <%= link_to review.brand.name, brand_path(review.brand) %></br>
+        <%= link_to review.brand.brewery.name, brewery_path(review.brand.brewery) %> / <%= link_to review.brand.name, brand_path(review.brand) %><br>
         香り:<%= review.aroma_id %>
         第一印象:<%= review.impression_id %>
         旨味:<%= review.taste_id %>
-        余韻:<%= review.afterglow_id %></br>
+        余韻:<%= review.afterglow_id %><br>
         コメント:<%= review.comment %>
       </div>
     <% end %>

@@ -10,6 +10,7 @@
   </head>
   <body>
     <header>
+      <div class="header-content">
         <div class="left-content">
           <%= link_to image_tag('sugidama.png', size: "60x60"), root_path, class: "header-img" %>
           <%= link_to 'のんべぇ', root_path, class: "title" %>
@@ -32,6 +33,7 @@
             <%= link_to '新規登録', new_user_registration_path, class: "signup" %>
           <% end %>
         </div>
+      </div>
     </header>
     <main>
       <% if user_signed_in? && current_page?(root_path) %>
@@ -42,6 +44,12 @@
         </div>
         <div class="side-menu">
           <%= render "shared/mypage" %>
+        </div>
+      <% elsif current_page?(root_path) %>
+        <div class="guest-main-wrapper">
+          <div class="guest-main-container">
+            <%= yield %>
+          </div>
         </div>
       <% else %>
         <div class="main-wrapper">

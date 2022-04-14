@@ -2,8 +2,11 @@
   <div class="mypage-title">
     <h3><%= link_to current_user.nickname, user_path(current_user) %></h3>
   </div>
+  <div class="favorites-container">
+    <%= link_to 'お気に入りの銘柄', '#' %>
+  </div>
+  <h4>好みの味わい</h4>
   <div class="mypage-like">
-    <h4>好みの味わい</h4>
     香り:<%= current_user.aroma_id %>
     第一印象:<%= current_user.impression_id %>
     旨味:<%= current_user.taste_id %>
@@ -13,26 +16,23 @@
     <h4>おすすめの銘柄</h4>
     <% @recomends.each do |recomend| %>
       <div class="recomend-container">
-        <%= link_to recomend.brewery.name, brewery_path(recomend.brewery) %> / <%= link_to recomend.name, brand_path(recomend) %></br>
+        <%= link_to recomend.brewery.name, brewery_path(recomend.brewery) %> / <%= link_to recomend.name, brand_path(recomend) %><br>
         香り:<%= recomend.aroma %>
         第一印象:<%= recomend.impression %>
         旨味:<%= recomend.taste %>
-        余韻:<%= recomend.afterglow %></br>
+        余韻:<%= recomend.afterglow %><br>
       </div>
     <% end %>
-  </div>
-  <div class="favorites-container">
-    <h4>お気に入りの銘柄</h4>
   </div>
   <div class="reviews">
     <h4>最近投稿したレビュー</h4>
     <% current_user.reviews.each do |review| %>
       <div class="review-container">
-        <%= link_to review.brand.brewery.name, brewery_path(review.brand.brewery) %> / <%= link_to review.brand.name, brand_path(review.brand) %></br>
+        <%= link_to review.brand.brewery.name, brewery_path(review.brand.brewery) %> / <%= link_to review.brand.name, brand_path(review.brand) %><br>
         香り:<%= review.aroma_id %>
         第一印象:<%= review.impression_id %>
         旨味:<%= review.taste_id %>
-        余韻:<%= review.afterglow_id %></br>
+        余韻:<%= review.afterglow_id %><br>
         コメント:<%= review.comment %>
       </div>
     <% end %>

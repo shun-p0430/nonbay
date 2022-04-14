@@ -2,12 +2,12 @@
   <h4><%= @brand.name %></h4>
   <h5>味わい</h5>
   <% if @brand.aroma.nil? %>
-    評価がありません</br>
+    評価がありません<br>
   <% else %>
     香り:<%= @brand.aroma %>
     第一印象:<%= @brand.impression %>
     旨味:<%= @brand.taste %>
-    余韻:<%= @brand.afterglow %></br>
+    余韻:<%= @brand.afterglow %><br>
   <% end %>
   <%= link_to 'レビュー投稿', new_brand_review_path(@brand) %>
   <%= link_to "#{@brand.brewery.name}の銘柄一覧へ戻る", brewery_path(@brand.brewery_id) %>
@@ -16,12 +16,12 @@
   <div class="reviews-container">
     <% @reviews.each do |review| %>
       <div class="review-container">
-        <%= link_to review.user.nickname, user_path(review.user) %></br>
+        <%= link_to review.user.nickname, user_path(review.user) %><br>
         香り:<%= review.aroma_id %>
         第一印象:<%= review.impression_id %>
         旨味:<%= review.taste_id %>
-        余韻:<%= review.afterglow_id %></br>
-        コメント:<%= review.comment %><br/>
+        余韻:<%= review.afterglow_id %><br>
+        コメント:<%= review.comment %><br>
       </div>
     <% end %>
   </div>

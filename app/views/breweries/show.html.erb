@@ -1,8 +1,18 @@
-<div class="selections">
+<div class="brands-container">
   <h4><%= "#{@brewery.name}の銘柄一覧" %></h4>
-  <div class="selection">
+  <div class="brand-container">
     <% @brands.each do |brand| %>
-      <%= link_to brand.name, brand_path(brand) %>
+      <div class="brand-select">
+        <%= link_to brand.name, brand_path(brand) %><br>
+        <% if brand.aroma.nil? %>
+          未評価<br>
+        <% else %>
+          香り:<%= brand.aroma %>
+          第一印象:<%= brand.impression %>
+          旨味:<%= brand.taste %>
+          余韻:<%= brand.afterglow %><br>
+        <% end %>
+      </div>
     <% end %>
   </div>
   <%= link_to '銘柄登録', new_brewery_brand_path(@brewery) %>

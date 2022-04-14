@@ -4,7 +4,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.label :email, "メールアドレス" %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -13,16 +13,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password, "新しいパスワード" %>(パスワードを変更する場合のみ入力)<br />
+    <%= f.label :password, "新しいパスワード" %>(パスワードを変更する場合のみ入力)<br>
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
-      <br />
+      <br>
       <em>半角<%= @minimum_password_length %>文字以上</em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "新しいパスワード確認用" %><br />
+    <%= f.label :password_confirmation, "新しいパスワード確認用" %><br>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -47,7 +47,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password, "現在のパスワード" %><br />
+    <%= f.label :current_password, "現在のパスワード" %><br>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
