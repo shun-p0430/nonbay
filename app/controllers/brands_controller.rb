@@ -3,7 +3,7 @@ class BrandsController < ApplicationController
 
   def show
     @brand = Brand.find(params[:id])
-    @reviews = @brand.reviews
+    @reviews = @brand.reviews.order(updated_at: "DESC")
   end
 
   def new
