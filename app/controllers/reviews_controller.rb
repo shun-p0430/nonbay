@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:aroma_id, :impression_id, :taste_id, :afterglow_id, :comment).merge(user_id: current_user.id, brand_id: params[:brand_id])
+    params.require(:review).permit(:aroma_id, :impression_id, :taste_id, :afterglow_id, :comment, :image).merge(user_id: current_user.id, brand_id: params[:brand_id])
   end
 
   def set_brand

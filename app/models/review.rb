@@ -8,6 +8,7 @@ class Review < ApplicationRecord
 
   belongs_to :user
   belongs_to :brand
+  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :aroma
