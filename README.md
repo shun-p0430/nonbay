@@ -52,8 +52,6 @@ https://docs.google.com/spreadsheets/d/1O7yM7sqR54szLbh7_HKamhAnHu6ANltiE52KQYz0
 
 # 実装予定の機能
 
-- 画像投稿機能
-
 - 味わい検索機能
 
 - 銘柄のキーワード検索機能

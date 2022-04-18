@@ -17,6 +17,7 @@
     <% @reviews.each do |review| %>
       <div class="review-container">
         <%= link_to review.user.nickname, user_path(review.user) %><br>
+        <%= image_tag review.image.variant(resize: '450x450'), class: 'review-image' if review.image.attached? %><br>
         香り:<%= review.aroma_id %>
         第一印象:<%= review.impression_id %>
         旨味:<%= review.taste_id %>
