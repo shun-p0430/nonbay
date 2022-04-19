@@ -24,10 +24,10 @@
       </div>
     <% end %>
   </div>
-  <div class="reviews">
+  <div class="myreviews-container">
     <h4>最近投稿したレビュー</h4>
     <% current_user.reviews.each do |review| %>
-      <div class="review-container">
+      <div class="myreview-container">
         <%= link_to review.brand.brewery.name, brewery_path(review.brand.brewery) %> / <%= link_to review.brand.name, brand_path(review.brand) %><br>
         香り:<%= review.aroma_id %>
         第一印象:<%= review.impression_id %>
