@@ -1,5 +1,5 @@
 <div class="reviews-container">
-  <h4>最新の投稿</h4>
+  <h1>最新の投稿</h1>
   <% @reviews.each do |review| %>
     <div class="review-container">
       <%= link_to review.brand.brewery.name, brewery_path(review.brand.brewery) %> / <%= link_to review.brand.name, brand_path(review.brand) %><br>

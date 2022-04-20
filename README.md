@@ -16,9 +16,9 @@ https://nonbay.herokuapp.com/
 
 ・Basic認証パスワード : 0000
 
-・メールアドレス :
+・メールアドレス : test@mail.com
 
-・パスワード :
+・パスワード : 000000
 
 # 利用方法
 
