@@ -1,49 +1,49 @@
 <div class="areas-container">
-  <h3>蔵元の所在地を選択してください</h3>
+  <h2>蔵元の所在地を選択してください</h2>
   <div class="area-container 1">
-    <h4>北海道・東北地方</h4>
+    <h3>北海道・東北地方</h3>
     <% Area.where(id: 1..7).each do |area| %>
       <%= link_to area.name, area_path(area), class: "area-select" %>
     <% end %>
   </div>
   <div class="area-container 2">
-    <h4>関東地方</h4>
+    <h3>関東地方</h3>
     <% Area.where(id: 8..14).each do |area| %>
       <%= link_to area.name, area_path(area), class: "area-select" %>
     <% end %>
   </div>
   <div class="area-container 3">
-    <h4>中部地方</h4>
+    <h3>中部地方</h3>
     <% Area.where(id: 15..23).each do |area| %>
       <%= link_to area.name, area_path(area), class: "area-select" %>
     <% end %>
   </div>
   <div class="area-container 4">
-    <h4>関西地方</h4>
+    <h3>関西地方</h3>
     <% Area.where(id: 24..30).each do |area| %>
       <%= link_to area.name, area_path(area), class: "area-select" %>
     <% end %>
   </div>
   <div class="area-container 5">
-    <h4>中国地方</h4>
+    <h3>中国地方</h3>
       <% Area.where(id: 31..35).each do |area| %>
         <%= link_to area.name, area_path(area), class: "area-select" %>
       <% end %>
   </div>
   <div class="area-container 6">
-    <h4>四国地方</h4>
+    <h3>四国地方</h3>
       <% Area.where(id: 36..39).each do |area| %>
         <%= link_to area.name, area_path(area), class: "area-select" %>
       <% end %>
   </div>
   <div class="area-container 7">
-    <h4>九州・沖縄地方</h4>
+    <h3>九州・沖縄地方</h3>
       <% Area.where(id: 40..47).each do |area| %>
         <%= link_to area.name, area_path(area), class: "area-select" %>
       <% end %>
   </div>
   <div class="area-container 8">
-    <h4>その他</h4>
+    <h3>その他</h3>
       <% Area.where(id: 0).each do |area| %>
         <%= link_to area.name, area_path(area), class: "area-select" %>
       <% end %>

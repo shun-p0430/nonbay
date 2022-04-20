@@ -1,6 +1,6 @@
 <div class="selections">
-  <h4><%= @brand.name %></h4>
-  <h5>味わい</h5>
+  <h2><%= @brand.name %></h2>
+  <h3>味わい</h3>
   <% if @brand.aroma.nil? %>
     評価がありません<br>
   <% else %>
@@ -12,7 +12,7 @@
   <%= link_to 'レビュー投稿', new_brand_review_path(@brand) %>
   <%= link_to "#{@brand.brewery.name}の銘柄一覧へ戻る", brewery_path(@brand.brewery_id) %>
 
-  <h5>レビュー一覧</h5>
+  <h3>レビュー一覧</h3>
   <div class="reviews-container">
     <% @reviews.each do |review| %>
       <div class="review-container">

@@ -1,11 +1,11 @@
 <div class="mypage-content">
   <div class="mypage-title">
-    <h3><%= link_to current_user.nickname, user_path(current_user) %></h3>
+    <h2><%= link_to current_user.nickname, user_path(current_user) %></h2>
   </div>
   <div class="favorites-container">
     <%= link_to 'お気に入りの銘柄', '#' %>
   </div>
-  <h4>好みの味わい</h4>
+  <h3>好みの味わい</h3>
   <div class="mypage-like">
     香り:<%= current_user.aroma_id %>
     第一印象:<%= current_user.impression_id %>
@@ -13,7 +13,7 @@
     余韻:<%= current_user.afterglow_id %>
   </div>
   <div class="recomends-container">
-    <h4>おすすめの銘柄</h4>
+    <h3>おすすめの銘柄</h3>
     <% @recomends.each do |recomend| %>
       <div class="recomend-container">
         <%= link_to recomend.brewery.name, brewery_path(recomend.brewery) %> / <%= link_to recomend.name, brand_path(recomend) %><br>
@@ -25,7 +25,7 @@
     <% end %>
   </div>
   <div class="myreviews-container">
-    <h4>最近投稿したレビュー</h4>
+    <h3>最近投稿したレビュー</h3>
     <% current_user.reviews.each do |review| %>
       <div class="myreview-container">
         <%= link_to review.brand.brewery.name, brewery_path(review.brand.brewery) %> / <%= link_to review.brand.name, brand_path(review.brand) %><br>
