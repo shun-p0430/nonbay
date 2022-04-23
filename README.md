@@ -60,8 +60,6 @@ https://docs.google.com/spreadsheets/d/1O7yM7sqR54szLbh7_HKamhAnHu6ANltiE52KQYz0
 
 - ユーザーのフォロー機能
 
-- さけのわAPIの利用
-
 # データベース設計
 
 [![Image from Gyazo](https://i.gyazo.com/4cf06c1a2e216d962bddb95405fcb7b3.png)](https://gyazo.com/4cf06c1a2e216d962bddb95405fcb7b3)
