@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   end
   
   resources :brands, only: [:index, :show] do
-    resources :reviews, only: [:new, :create]
     collection do
       get 'search'
     end
+    resources :reviews, only: [:new, :create]
   end
 
   resources :users, only: [:show, :edit, :update]

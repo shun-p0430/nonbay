@@ -23,6 +23,7 @@ class BrandsController < ApplicationController
 
   def search
     @brands = Brand.search(params[:keyword])
+    render 'brands/search'
     binding.pry
   end
 
