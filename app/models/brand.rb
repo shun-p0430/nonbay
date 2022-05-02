@@ -6,12 +6,4 @@ class Brand < ApplicationRecord
   
   belongs_to :brewery
   has_many :reviews
-
-  def self.search(search)
-    if search != ""
-      Brand.where('name LIKE(?)', "%#{search}%")
-    else
-      Brand.all
-    end
-  end
 end
